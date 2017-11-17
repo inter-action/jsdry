@@ -1,0 +1,20 @@
+{
+  "name": "interaction-dry",
+  "version": "0.0.1",
+  "description": "some desc",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "typescript": "^2.6.1"
+  },
+  "scripts": {
+    "build": "tsc -p . --outDir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dry"
+  ],
+  "author": "jing.miao",
+  "license": "ISC"
+}
