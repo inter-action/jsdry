@@ -27,7 +27,7 @@ class LocalStorageUtils {
     popItem(key: string) {
         let data = this.getItem(key)
         if (data != null) {
-            localStorage.removeItem(key)
+            this.removeItem(key)
         }
         return data
     }
@@ -51,6 +51,9 @@ class LocalStorageUtils {
         return this.rootKey + key
     }
 
+    removeItem(key: string) {
+        return localStorage.removeItem(this.key(key))
+    }
 
     clear() {
         for (let key in localStorage) {
