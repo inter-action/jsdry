@@ -1,17 +1,24 @@
 
-export function deepClone(data: any) {
-    if (typeof data !== 'object') return data;
-    const newData: any = Array.isArray(data) ? [] : {};
-    Object.keys(data).forEach(key => {
-        let value = data[key]
-        if (typeof value === 'object') {
-            newData[key] = deepClone(value)
+export function deepClone(src: any) {
+    let isPrimitive = function (val: any) {
+        return val == null || /^[sbn]/.test(typeof val); // s: symbol, b: boolean, n: number1
+    }
+
+    function clone(src: any): any {
+        if (isPrimitive(src)) {
+            return src
+        } else if (Array.isArray(src)) {
+            return src.map(e => clone(e))
         } else {
-            newData[key] = value
+            return ((Reflect as any).keys || Object.keys)(src).reduce((p, k) => {
+                p[k] = clone(src[k])
+            }, {})
         }
-    })
-    return newData;
+    }
+
+    return clone(src)
 }
+
 
 
 export function sleep(duration: number) {
