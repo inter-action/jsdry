@@ -1,44 +1,43 @@
-
 /**
- * usage: 
+ * usage:
  *      let pubsub = new PubSub()
  *      pubsub.reg('/some/event', (arg1, arg2)=>{//...})
- *      pubsub.pub('/som/event', arg, arg) 
+ *      pubsub.pub('/som/event', arg, arg)
  */
-type Callback = (...args: any[]) => void
+export type Callback = (...args: any[]) => void
 export class PubSub {
     private hub: { [key: string]: any } = {}
 
-    reg(name: string, callback: Callback) { //todo:
+    public reg(name: string, callback: Callback) {
+        // todo:
         if (this.hub[name] == null) {
-            this.hub[name] = [];
+            this.hub[name] = []
         }
-        var idx = this.hub[name].indexOf(callback);
+        const idx = this.hub[name].indexOf(callback)
         if (idx !== -1) {
-            return;
+            return
         }
-        this.hub[name].push(callback);
+        this.hub[name].push(callback)
         return () => {
             this.unreg(name, callback)
         }
     }
 
-    unreg(name: string, callback: Callback) {
-        if (this.hub[name] == null) return;
+    public unreg(name: string, callback: Callback) {
+        if (this.hub[name] == null) return
 
-        var idx = this.hub[name].indexOf(callback);
+        const idx = this.hub[name].indexOf(callback)
         if (idx === -1) {
-            return;
+            return
         }
-        this.hub[name].splice(idx, 1);
+        this.hub[name].splice(idx, 1)
     }
 
-    pub(name: string) {
-        var args = Array.prototype.slice.call(arguments).slice(1);
+    public pub(name: string) {
+        const args = Array.prototype.slice.call(arguments).slice(1)
         if (this.hub[name] != null && this.hub[name].length !== 0) {
-            for (var i = 0; i < this.hub[name].length; i++) {
-                var cb = this.hub[name][i];
-                cb.apply({}, args);
+            for (const cb of this.hub[name]) {
+                cb.apply({}, args)
             }
         }
     }

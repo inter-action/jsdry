@@ -1,20 +1,43 @@
 {
   "name": "interaction-dry",
-  "version": "0.0.1",
-  "description": "some desc",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "@types/node": "^8.0.53",
-    "typescript": "^2.6.1"
-  },
+  "private": false,
+  "version": "0.0.2",
+  "description": "dont repeat myself",
+  "repository": "inter-action/jsdry",
+  "author": "Miao Jing <243127395@qq.com>",
+  "license": "MIT",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "build": "tsc -p . --outDir build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "tsc -p tsconfig.build.json",
+    "start": "tsc -p tsconfig.build.json -w",
+    "format": "prettier --write src/**/*.ts src/**/*.tsx",
+    "precommit": "lint-staged",
+    "clean": "rm -rf build",
+    "lint": "tslint -c tslint.json 'src/**/*.ts src/**/*.tsx'",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "keywords": [
     "dry"
   ],
-  "author": "jing.miao",
-  "license": "ISC"
+  "lint-staged": {
+    "*.{ts, tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.12.1",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.7.0",
+    "tslint-react": "^3.4.0",
+    "typescript": "^2.8.1"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  }
 }

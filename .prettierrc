@@ -1,0 +1,9 @@
+# http://json.schemastore.org/prettierrc
+printWidth: 110
+semi: false
+singleQuote: true
+tabWidth: 4
+trailingComma: "none"
+
+# // prettier-ignore
+

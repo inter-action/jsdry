@@ -1,20 +1,17 @@
-
-
-class LocalStorageUtils {
-    rootKey = 'lsu_'
+export class LocalStorageUtils {
+    private rootKey = 'lsu_'
     /**
-     * @param {string} key 
+     * @param {string} key
      * @returns parsed json obj, or string | null if corresponding value is not json type
      * @memberof LocalStorageUtils
      */
-    getItem(key: string) {
+    public getItem(key: string) {
         key = this.key(key)
 
-        let str = localStorage.getItem(key)
+        const str = localStorage.getItem(key)
         if (!str) return str
         try {
-            let json = JSON.parse(str)
-            return json
+            return JSON.parse(str)
         } catch (e) {
             return str
         }
@@ -22,10 +19,10 @@ class LocalStorageUtils {
 
     /**
      * fetch & remove item
-     * @param key 
+     * @param key
      */
-    popItem(key: string) {
-        let data = this.getItem(key)
+    public popItem(key: string) {
+        const data = this.getItem(key)
         if (data != null) {
             this.removeItem(key)
         }
@@ -33,12 +30,12 @@ class LocalStorageUtils {
     }
 
     /**
-     * 
-     * @param {string} key 
-     * @param {string|obj} value 
+     *
+     * @param {string} key
+     * @param {string|obj} value
      * @memberof LocalStorageUtils
      */
-    setItem(key: string, value: object) {
+    public setItem(key: string, value: object) {
         key = this.key(key)
         if (typeof value === 'string') {
             localStorage.setItem(key, value)
@@ -47,20 +44,19 @@ class LocalStorageUtils {
         }
     }
 
-    key(key: string) {
+    public key(key: string) {
         return this.rootKey + key
     }
 
-    removeItem(key: string) {
+    public removeItem(key: string) {
         return localStorage.removeItem(this.key(key))
     }
 
-    clear() {
-        for (let key in localStorage) {
+    public clear() {
+        for (const key in localStorage) {
             if (key.startsWith(this.rootKey)) {
                 localStorage.removeItem(key)
             }
         }
     }
 }
-export const localStorageUtils = new LocalStorageUtils()

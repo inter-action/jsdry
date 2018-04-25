@@ -1,0 +1,40 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:latest",
+        "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+        "curly": [
+            true,
+            "ignore-same-line"
+        ],
+        "no-bitwise": [
+            false
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore",
+            "allow-pascal-case"
+        ],
+        "ban-types": [
+            false,
+            [
+                "Object",
+                "Use {} instead."
+            ],
+            [
+                "String"
+            ]
+        ],
+        "only-arrow-functions": [
+            false,
+            "allow-declarations",
+            "allow-named-functions"
+        ]
+    },
+    "rulesDirectory": []
+}
