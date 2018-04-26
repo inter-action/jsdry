@@ -14,3 +14,5 @@ export const isStatelessComp = (Comp: any) => !(Comp.prototype && Comp.prototype
 export function getDisplayName(WrappedComponent: Function & { displayName: string }) {
     return WrappedComponent.displayName || WrappedComponent.name || 'Component'
 }
+
+export * from './moutbody'

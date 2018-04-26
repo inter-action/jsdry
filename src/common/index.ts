@@ -1,8 +1,4 @@
 import * as url from './url'
-export * from './pubsub'
-export * from './uuid'
-
-export { url }
 
 export function deepClone(src: any) {
     const isPrimitive = (val: any) => {
@@ -39,3 +35,8 @@ export function sleep(duration: number) {
 export function calcPaginationOffset(pageno: number, itemsPerPage: number) {
     return (pageno - 1) * itemsPerPage
 }
+
+export * from './pubsub'
+export * from './uuid'
+
+export { url }

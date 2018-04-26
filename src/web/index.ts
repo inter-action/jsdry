@@ -1,6 +1,4 @@
 import * as react from './react'
-export * from './localstorage_utils'
-export { react }
 
 export function throttle(func: Function, milisec = 300) {
     let timer: any = null
@@ -12,3 +10,7 @@ export function throttle(func: Function, milisec = 300) {
         }, milisec)
     }
 }
+
+export * from './localstorage_utils'
+export * from './amap_async_loader'
+export { react }
