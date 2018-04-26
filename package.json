@@ -1,7 +1,7 @@
 {
   "name": "interaction-dry",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "dont repeat myself",
   "repository": "inter-action/jsdry",
   "author": "Miao Jing <243127395@qq.com>",
