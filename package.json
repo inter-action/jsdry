@@ -38,6 +38,7 @@
     "typescript": "^2.8.1"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "react-dom": ">=16"
   }
 }

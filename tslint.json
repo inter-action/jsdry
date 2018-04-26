@@ -14,7 +14,7 @@
             false
         ],
         "variable-name": [
-            true,
+            false,
             "ban-keywords",
             "check-format",
             "allow-leading-underscore",
@@ -34,7 +34,13 @@
             false,
             "allow-declarations",
             "allow-named-functions"
-        ]
+        ],
+        "interface-name": [
+            false,
+            "always-prefix"
+        ],
+        "object-literal-sort-keys": false,
+        "member-access": false
     },
     "rulesDirectory": []
 }
