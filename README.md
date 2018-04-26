@@ -1,7 +1,8 @@
 # dont repeat yourself
 
 
-* structure
+
+## structure
 
 ```
 src
@@ -24,4 +25,11 @@ src
         ├── index.ts
         └── moutbody.ts
 
+```
+
+## usage
+
+```js
+import {} from 'interaction-dry/common'
+import {} from 'interaction-dry/web'
 ```
